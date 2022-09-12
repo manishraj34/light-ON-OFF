@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>light ON ? OFF</title>
+</head>
+
+<style>
+    h1{
+        text-align: center;
+    }
+    .lightapp{
+        display: flex;
+        width: 100%;
+        height: 80vh;
+        justify-content: center;
+    }
+    figcaption{
+        text-align: center;
+    }
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.onoffbtn{
+        margin-top: -205px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+}
+
+</style>
+<body>
+    <h1 id="bulbdata">LIGHT ON OFF</h1><BR>
+        <main class="lightapp">     
+            <figure class="lightstyle">
+                <img src="bulboff.jpg" id="lightid1" onclick="tubelight()">
+                <figcaption><p>Light On Off</p></figcaption>
+            </figure>
+
+            <figure class="lightstyle">
+                <img src="bulboff.jpg" id="lightid2" onclick="tubelight()">
+                <figcaption><p>Light On Off</p></figcaption>
+            </figure>
+
+            <figure class="lightstyle">
+                <img src="bulboff.jpg" id="lightid3" onclick="tubelight()">
+                <figcaption><p>Light On Off</p></figcaption>
+            </figure>
+
+            <figure class="lightstyle">
+                <img src="bulboff.jpg" id="lightid4" onclick="tubelight()">
+                <figcaption><p>Light On Off</p></figcaption>
+            </figure>
+
+            <figure class="lightstyle">
+                <img src="bulboff.jpg" id="lightid5" onclick="tubelight()">
+                <figcaption><p>Light On Off</p></figcaption>
+            </figure>
+        </main>
+
+        <div class="onoffbtn">
+            <label class="switch">
+                <input type="checkbox"><span class="slider" onclick="tubelight()"></span>
+            </label>
+        </div>
+
+        <script>
+            const tubelight=(()=>{
+let btxt=document.getElementById("bulbdata")
+                for(let x=1;x<6;x++){
+
+                    let z=document.getElementById('lightid'.concat(x));
+                    if(z.src.match('bulbon')){
+                        z.src='bulboff.jpg';
+                        btxt.innerHTML='LIGHT IS OFF NOW';
+                    }
+                    else{
+                        z.src='bulbon.jpg';
+                        btxt.innerHTML='LIGHT IS ON NOW';
+                        
+                    }
+                }
+                });
+        </script>
+</body>
+</html>
